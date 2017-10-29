@@ -4,7 +4,7 @@ import os
 import sys
 
 #create file_type file_name
-
+chmod = 700
 header = {
 	"py": "#! /usr/bin/env python\n",
 	"py3":"#! /usr/bin/env python3\n",
@@ -30,6 +30,9 @@ def check_valid_type(params):
 	os.system(command)
 	file_name = ''.join([params[2],".", file_type])
 	add_header(params, file_name)
+	if file_type == "py":
+		command = ''.join(["chmod ", str(chmod), " ", file_name])
+		os.system(command)
 
 check_valid_params(sys.argv)
 check_valid_type(sys.argv)
