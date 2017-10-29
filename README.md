@@ -1,6 +1,9 @@
 # Create-Terminal
-Program used to create files with correct shebangs and or header
+Program used to create files with correct shebangs and or header. It will also automatically chmod scripts defined in settings
 
-You can create custom shebangs and headers
+Settings:
 
-- For example in C i use my schools header
+- You can define shebags and headers by extension
+
+- You can define what chmod you want
+

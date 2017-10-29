@@ -8,12 +8,16 @@ chmod = 700
 header = {
 	"py": "#! /usr/bin/env python\n",
 	"py3":"#! /usr/bin/env python3\n",
-	"c":"/*\n** EPITECH PROJECT, 2017\n** file_name.c\n** File description:\n**	desc\n*/\n"
+	"c":"/*\n** EPITECH PROJECT, 2017\n** file_name.c\n** File description:\n**	desc\n*/\n",
+	"sh":"#! /usr/bin/env bash"
 	}
+
+chmod_types = ["py", "sh"]
 
 def add_header(params, file_name):
 	file = open(file_name, "w")
-	file.write(header[params[1]])
+	if params[1] in header:
+		file.write(header[params[1]])
 	file.close()
 
 def check_valid_params(params):
@@ -30,7 +34,7 @@ def check_valid_type(params):
 	os.system(command)
 	file_name = ''.join([params[2],".", file_type])
 	add_header(params, file_name)
-	if file_type == "py":
+	if file_type in chmod_types:
 		command = ''.join(["chmod ", str(chmod), " ", file_name])
 		os.system(command)
 
